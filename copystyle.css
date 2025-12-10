@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --magenta:#850E35;
+    --pink:#EE6983;
+    --rose:#FFC4C4;
+    --font-curs:font-family: "Homemade Apple", cursive;
+    --font-norm: "Roboto Mono", monospace;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+    background:linear-gradient(var(--magenta),var(--pink), var(--magenta)) ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.nav h1 {
+    font-family: var(--font-curs) !important;
+    color: white;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    overflow: hidden;
+    white-space: nowrap;
+    animation:typing 2.5s steps(18);}
+
+
+ @keyframes typing {
+            0%{
+                width: 0ch;
+            }
+            40%{
+                width: 17ch;
+            }
+            60%{
+                width: 17ch;
+            }
+            
+        }
+.nav img{
+    animation: scooter 1.5s  linear;
+
+}
+        @keyframes scooter {
+
+           0%{
+                transform: translateX(350px);
+            }
+        }
+
+
+#cb{
+    display: none;
+
+}
+.menu{
+    background-color: var(--pink);
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 2px;
+    display: none;
+   
+}
+/* circle */
+.ani-circle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--pink);
+    transform: translate(-50%, -50%) scale(1);
+    animation: introCircle 1.8s ease-out forwards;
+    z-index: 1; 
+    border: 1px solid white;
+
+}
+    
+@keyframes introCircle {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        background: var(--pink);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(-50%, -50%) scale(4);
+        background: #dc8899;
+    }
+
+    60% {
+        transform: translate(-50%, -50%) scale(15);
+        background: #db0c35b2;
+    }
+
+    80% {
+        transform: translate(-50%, -50%) scale(80);
+        background:#db0c35;
+    }
+
+    100% {
+        display: none;             
+        
+    }
+}
+/* Intro Section*/
+
+.intro-section {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+/* Hungry text fade out */
+.hungry-text {
+    font-size: 35px;
+    font-weight: 700;
+    animation: fadeText 3s forwards;
+    animation-delay: 1.8s;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 100px;
+    color: var(--magenta);
+    opacity: 0;
+}
+
+@keyframes fadeText {
+    0% { 
+        opacity: 1; 
+    }
+    100% { 
+        opacity: 0; 
+    }
+}
+
+/* Hide images  */
+.food-rotate1 {
+    opacity: 0;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    position: absolute;
+
+    animation: showImages1 2s 4s forwards; 
+
+}
+/* Show images after hungry text disappears */
+@keyframes showImages1 {
+    from{
+        transform: translate(50%,-200%);
+    }
+    to { opacity: 1; }
+}
+
+@keyframes showImages2 {
+    from{
+        transform: translate(50%,200%);
+    }
+    to { opacity: 1; }
+}
+
+/* Rotate each image */
+.spin-plate {
+    width: auto;
+    animation: spin 4s linear infinite;
+    margin: 0 10px;
+}
+
+@keyframes spin {
+    from {
+         transform: rotate(0deg);
+         }
+    to {
+         transform: rotate(360deg);
+         }
+}
+.order-button p{
+    font-size: 55px;
+    background:linear-gradient(to bottom , var(--magenta)0 30%,var(--pink)40% 70%, var(--magenta)80% 100%);
+    background-clip: text;
+    color: transparent;
+
+}
+.order-button button{
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+    left:90%;
+    background:linear-gradient(var(--magenta),var(--pink), var(--magenta)) ;
+    color: white;
+    font-weight: 600;
+    box-shadow: 10px 15px 10px #850e3661;
+    border: 3px solid var(--magenta); 
+    
+}
+.order-button button:hover{
+    background:linear-gradient(var(--pink), var(--magenta),var(--pink)) ;
+}
+
+.delivery{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6%;
+    animation: ShowHouse 2s 4s forwards;
+    opacity: 0;
+}
+@keyframes ShowHouse {
+    to{
+        opacity: 1;
+    }
+    
+}
+.delivery img{
+     width: 100px;
+}
+.scooter{
+     animation: scooter2 5s 5s linear  infinite;
+}
+
+@keyframes scooter2 {
+    to{
+        
+        transform: translateX(1750px)scaleX(-1);
+    }
+    
+}
+
+
+
+/* Media Querry */
+
+@media (max-width:400px) {
+
+    nav{
+        display: none;
+    }
+   .menu{
+    display: flex;
+    }
+    #cb:checked+nav{
+        display: flex;
+        position:absolute;
+        flex-direction: column;
+        right:0;
+        top:60px;
+        background-color: var(--magenta);
+        animation: menu 1s linear;
+        width: 30%;
+        padding: 10px;
+        transform: translateY(0);
+    }
+    nav a:hover{
+        animation: menu-bar 0.5s linear;
+    }
+
+    @keyframes menu {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+    @keyframes menu-bar {
+        to {
+            border-left: 5px solid var(--pink);
+            background-color:#f6ecef35;
+            transform: translateX(10px);
+        }
+    }
+    
+
+
+
+}
+
